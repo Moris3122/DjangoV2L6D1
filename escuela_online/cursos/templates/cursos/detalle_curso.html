@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle Curso{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">Detalle del Curso: {{ curso.nombre }}</h1>
+            <p>Día de Publicación: {{ curso.dia_publicacion }}</p>
+            <p>Cantidad de Videos: {{ curso.cantidad_videos }}</p>
+            <p>Imagen: <img src="{{ curso.imagen.url }}" alt="{{ curso.nombre }}" width="100px"></p>
+            <a href="{% url 'editar_curso' curso.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'eliminar_curso' curso.id %}" class="btn btn-danger">Eliminar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Cursos{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">Lista de Cursos</h1>
+            <ul>
+                {% for curso in cursos %}
+                    <li>
+                        <a href="{% url 'detalle_curso' curso.id %}">{{ curso.nombre }}</a>
+                        <a href="{% url 'editar_curso' curso.id %}">Editar</a>
+                        <a href="{% url 'eliminar_curso' curso.id %}">Eliminar</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'crear_curso' %}" class="btn btn-primary btn-block">Crear Nuevo Curso</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
